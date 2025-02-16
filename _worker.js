@@ -464,6 +464,10 @@ export default {
 			parameter.headers['X-Amz-Content-Sha256'] = getReqHeader("X-Amz-Content-Sha256");
 		}
 
+		if (request.headers.has("x-amz-content-sha256")){
+			parameter.headers['x-amz-content-sha256'] = getReqHeader('x-amz-content-sha256');
+		}
+
 		// 发起请求并处理响应
 		let original_response = await fetch(new Request(url, request), parameter);
 		let original_response_clone = original_response.clone();
